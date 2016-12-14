@@ -1,0 +1,170 @@
+<div class="row table-row">
+  <div class="col-sm-6 vertical-middle hidden-xs">
+    <ul class="progressBar" progress-state>
+      <li class="active"><span class="fa fa-check-circle"></span><span>RO / RMU Details</span></li>
+      <li class="active"><span class="fa fa-check-circle"></span><span>Promoter / Proprietor Information</span></li>
+      <li class="active"><span class="fa fa-check-circle"></span><span>Business Details</span></li>
+      <li class="bold"><span class="fa fa-check-circle"></span><span>Loan section</span></li>
+      <li><span class="fa fa-check-circle"></span><span>Download Forms</span></li>
+      <li><span class="fa fa-check-circle"></span><span>Upload Signed Form</span></li>
+    </ul>
+  </div>
+  <div class="col-sm-6 vertical-top col-xs-12">
+    <div class="widget widget-left">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="well well-ro">
+            <form novalidate="true" data-ng-submit="ro.submitUserLoanDetailsForm(userloandetails.$valid)" enctype="multipart/form-data" name="userloandetails" data-ng-init="buttonUserLoanDetailsFormClicked = false;">
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <label>Loan Amount (in Rs.)</label>
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-inr" aria-hidden="true"></i></span>
+                      <input type="text" class="form-control left" placeholder="Loan Amount (in Rs.)" required name="loanamt" data-ng-model="ro.userLoanDetails.loanAmt" data-ng-class="{'validation-error': userloandetails.loanamt.$error.required && (buttonUserLoanDetailsFormClicked || !userloandetails.loanamt.$pristine)}" data-container="body" data-toggle="popover" data-placement="left" data-content="Please enter Loan Amount">
+                      <span class="input-group-addon exclamation hidden-xs" data-ng-show="userloandetails.loanamt.$error.required && (buttonUserLoanDetailsFormClicked || !userloandetails.loanamt.$pristine)"><i class="fa fa-exclamation-circle" popover-trig></i></span>
+                      <div class="error visible-xs" data-ng-show="userloandetails.loanamt.$error.required && (buttonUserLoanDetailsFormClicked || !userloandetails.loanamt.$pristine)">
+                        <span>Please enter Loan Amount.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-6">
+                    <label>Tenor in Days</label>
+                    <select class="form-control" data-ng-model="ro.userLoanDetails.tenor" name="tenor" data-ng-init="ro.userLoanDetails.tenor = '0'" data-ng-class="{'validation-error': ro.userLoanDetails.tenor == '0' && buttonUserLoanDetailsFormClicked}" data-container="body" data-toggle="popover" data-placement="left" data-content="Please select tenor">
+                      <option value="0">Select days</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
+                      <option>11</option>
+                      <option>12</option>
+                      <option>13</option>
+                      <option>14</option>
+                      <option>15</option>
+                      <option>16</option>
+                      <option>17</option>
+                      <option>18</option>
+                      <option>19</option>
+                      <option>20</option>
+                      <option>21</option>
+                      <option>22</option>
+                      <option>23</option>
+                      <option>24</option>
+                      <option>25</option>
+                      <option>26</option>
+                      <option>27</option>
+                      <option>28</option>
+                      <option>29</option>
+                      <option>30</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-1 hidden-xs padding top-2x">
+                    <span class="exclamation error" data-ng-show="ro.userLoanDetails.tenor == '0' && buttonUserLoanDetailsFormClicked"><i class="fa fa-exclamation-circle" popover-trig></i></span>
+                  </div>
+                  <div class="error visible-xs" data-ng-show="ro.userLoanDetails.tenor == '0' && buttonUserLoanDetailsFormClicked">
+                    <span>Please select tenor.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <label>Upload ID Proof (PAN, or Passport, or Voter ID)</label>
+                    <div data-ng-repeat="idProof in ro.userloandetails.idProofs" class="padding bottom-0x">
+                      <input type="file" accept="image/*"  id="{{idProof.id}}" onchange="angular.element(this).scope().fileNameChangedIdProof(event)" class="hide" data-ng-model="ro.userloandetails.idProof[$index]" name="idProof"/>
+                      <button type="button" class="btn btn-default" data-ng-click="ro.uploadCopy(idProof.id)">Upload ID Proof</button>
+                      <span>{{ro.userloandetails.idProofs[$index].fakeValue}}</span>
+                    </div>
+                    <div>
+                      <a href="javascript:void(0)" data-ng-click="ro.addMoreItems(ro.userloandetails.idProofs, 'idProof')">Add more ID Proof</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <label>Upload Address Proof (Aadhaar Card, or Passport)</label>
+                    <div data-ng-repeat="idProof in ro.userloandetails.addressProofs" class="padding bottom-0x">
+                      <input type="file" accept="image/*"  id="{{idProof.id}}" onchange="angular.element(this).scope().fileNameChangedAddressProof(event)" class="hide" data-ng-model="ro.userloandetails.addressProofs[$index]" name="addressProof"/>
+                      <button type="button" class="btn btn-default" data-ng-click="ro.uploadCopy(idProof.id)">Upload Address Proof</button>
+                      <span>{{ro.userloandetails.addressProofs[$index].fakeValue}}</span>
+                    </div>
+                    <div>
+                      <a href="javascript:void(0)" data-ng-click="ro.addMoreItems(ro.userloandetails.addressProofs, 'addressProof')">Add more Address Proof</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <!--
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <label>Upload Photo</label>
+                    <input type="file" accept="image/*" class="hide" data-ng-model="ro.userloaddetails.uploadPhoto"/>
+                    <button type="button" class="btn btn-default" >Upload Photo</button>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <label>Bank statement (last six months)</label>
+                    <input type="file" class="hide" data-ng-model="ro.userloaddetails.bankStatement"/>
+                    <button type="button" class="btn btn-default" >Bank Statement</button>
+                  </div>
+                </div>
+              </div>
+            -->
+              <div class="row padding top-2x">
+                <div class="col-xs-12">
+                  <p>Following conditions apply</p>
+                  <ol>
+                    <li>If the form is submitted prior to 12 PM the Financial Institution will disburse funds on same day on best effort basis. In case the funds cannot be disbursed on the same day, disbursal will take place by 1 working day after the submission of the Form above.</li>
+                    <li>On repayment date if funds are not received by 12 PM, one day's interest would be levied on the outstanding amount</li>
+                  </ol>
+                </div>
+              </div>
+              <div class="row padding top-2x">
+                <div class="col-xs-12">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="checkbox tnc">
+                        <label ><input type="checkbox" name="scannedCopy" required data-ng-class="{'validation-error': ro.tncChecked == true}" data-container="body" data-toggle="popover" data-placement="left" data-content="Click terms and conditions to continue"/>  I agree to the above terms and conditions
+                        </label>
+                        <span class="exclamation error" data-ng-show="ro.tncChecked == true">
+                        <i class="fa fa-exclamation-circle" popover-trig></i>
+                      </span>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group padding top-1x">
+                <div class="row table-row">
+                  <div class="col-sm-3 vertical-top">
+                    <button type="submit" class="btn btn-primary" data-ng-click="buttonUserLoanDetailsFormClicked = true">Continue</button>
+                  </div>
+                  <div class="col-sm-9 vertical-middle">
+                    <a href="javascript:void(0)" data-ng-click="ro.logout()">Logout and continue later</a>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

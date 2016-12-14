@@ -1,0 +1,57 @@
+<div class="row table-row">
+  <div class="col-sm-6 vertical-top col-xs-12">
+    <div class="widget widget-left">
+      <div class="row">
+        <div class="col-xs-12" data-ng-show="ro.statusmessage == 'applying'">
+          <div class="well well-ro">
+            <div class="row padding top-4x">
+              <div class="col-xs-12">
+                <h4>Thank you for checking. Your application is under processing. We will get in touch as soon as the application has been processed</h4>
+              </div>
+            </div>
+            <div class="form-group padding top-3x bottom-4x">
+              <a href="javascript:void(0)" class="btn btn-primary" data-ng-click="ro.logout()">Logout</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12" data-ng-show="ro.statusmessage == 'rejected'">
+          <div class="well well-ro">
+            <div class="row padding top-4x">
+              <div class="col-xs-12">
+                <h4>Sorry, your application was not approved. Please try again after 1 month</h4>
+              </div>
+            </div>
+            <div class="form-group padding top-3x bottom-4x">
+              <a href="javascript:void(0)" class="btn btn-primary" data-ng-click="ro.logout()">Logout</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12" data-ng-show="ro.statusmessage == 'approved'">
+          <div class="well well-ro">
+            <div class="row padding top-4x">
+              <div class="col-xs-12">
+                <h4>Your application has been approved. one of our representatives will contact you shortly</h4>
+              </div>
+            </div>
+            <div class="form-group padding top-3x bottom-4x">
+              <a href="javascript:void(0)" class="btn btn-primary" data-ng-click="ro.logout()">Logout</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12" data-ng-show="ro.statusmessage == 'loanDisbursed'">
+          <div class="well well-ro">
+            <div class="row padding top-4x">
+              <div class="col-xs-12">
+                <h4>Our records indicate loan has already been disbursed to you. Thank you for doing business
+                  with us</h4>
+              </div>
+            </div>
+            <div class="form-group padding top-3x bottom-4x">
+              <a href="javascript:void(0)" class="btn btn-primary" data-ng-click="ro.logout()">Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

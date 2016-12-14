@@ -1,0 +1,42 @@
+<div class="row table-row">
+  <div class="col-sm-6 vertical-top hidden-xs">
+    <ul class="progressBar" progress-state>
+      <li class="bold"><span class="fa fa-check-circle"></span><span>RO / RMU Details</span></li>
+      <li><span class="fa fa-check-circle"></span><span>Promoter / Proprietor Information</span></li>
+      <li><span class="fa fa-check-circle"></span><span>Business Details</span></li>
+      <li><span class="fa fa-check-circle"></span><span>Loan section</span></li>
+      <li><span class="fa fa-check-circle"></span><span>Download Forms</span></li>
+      <li><span class="fa fa-check-circle"></span><span>Upload Signed Form</span></li>
+    </ul>
+  </div>
+  <div class="col-sm-6 vertical-top col-xs-12">
+    <div class="widget widget-left">
+      <div class="row">
+  <div class="col-xs-12">
+    <div class="well well-ro">
+      <form novalidate="true" data-ng-submit="ro.submitRoOrRmuForm(roorrmu.$valid)" name="roorrmu">
+        <div class="form-group">
+          <div class="radio">
+            <label><input type="radio" name="userType" value="RMU" required data-ng-init="ro.userType = 'RMU'" data-ng-model="ro.userType"/> I am a RMU</label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" name="userType" value="RO" required data-ng-model="ro.userType"/> I am RO</label>
+          </div>
+        </div>
+        <div class="form-group padding top-1x bottom-4x">
+          <div class="row table-row">
+            <div class="col-sm-3 vertical-top">
+              <button type="submit" class="btn btn-primary">Continue</button>
+            </div>
+            <div class="col-sm-9 vertical-middle">
+              <a href="javascript:void(0)"  data-ng-click="ro.logout()">Logout and continue later</a>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+</div>

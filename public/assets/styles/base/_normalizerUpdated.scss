@@ -1,0 +1,19 @@
+html, body {
+  height: 100%;
+}
+body{
+	overflow-x:hidden;
+	font-family: 'Roboto', sans-serif;
+	font-size:14px;
+	color: #666666;
+	&.noScroll{
+		overflow:hidden;
+	}
+}
+.font-size-small{
+	font-size: $font-size-small;
+}
+/*angularjs directive display none*/
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}

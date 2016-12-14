@@ -1,0 +1,12 @@
+.popover{
+  background: #d9534f;
+  color: $white;
+  font-size:11px;
+  &.left{
+    >.arrow{
+      &::after{
+        border-left-color: #d9534f;
+      }
+    }
+  }
+}

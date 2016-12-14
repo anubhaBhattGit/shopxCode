@@ -1,0 +1,32 @@
+.padding{
+    &.top-0x{
+      padding-top: 10px;
+    }
+    &.top-1x{
+      padding-top: 20px;
+    }
+    &.top-2x{
+      padding-top: 30px;
+    }
+    &.top-3x{
+      padding-top: 40px;
+    }
+    &.top-4x{
+      padding-top: 50px;
+    }
+    &.bottom-0x{
+      padding-bottom: 10px;
+    }
+    &.bottom-1x{
+      padding-bottom: 20px;
+    }
+    &.bottom-2x{
+      padding-bottom: 30px;
+    }
+    &.bottom-3x{
+      padding-bottom: 40px;
+    }
+    &.bottom-4x{
+      padding-bottom: 50px;
+    }
+}

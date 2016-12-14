@@ -1,0 +1,119 @@
+<form>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-xs-12">
+        <label>Name</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 col-xs-12">
+        <input type="text" class="form-control" placeholder="First" />
+      </div>
+      <div class="col-sm-6 col-xs-12">
+        <input type="text" class="form-control" placeholder="Middle" />
+      </div>
+    </div>
+    <div class="row padding top-0x">
+      <div class="col-sm-6 col-xs-12">
+        <input type="text" class="form-control" placeholder="Last" />
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-xs-12">
+        <label>E-mail Address</label>
+        <input type="text" class="form-control" placeholder="E-mail Address" />
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-xs-6">
+        <label>Gender</label>
+        <select class="form-control">
+          <option value="0">I am...</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Trans</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-xs-6">
+        <label>Education</label>
+        <select class="form-control">
+          <option value="0">I am...</option>
+          <option>School</option>
+          <option>Graduate</option>
+          <option>Post graduate</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-xs-12">
+        <label>Date of Birth</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4">
+        <select class="form-control">
+          <option value="0">Day</option>
+          <option>1</option>
+          <option>2</option>
+        </select>
+      </div>
+      <div class="col-xs-4">
+        <select class="form-control">
+          <option value="0">Month</option>
+          <option>1</option>
+          <option>2</option>
+        </select>
+      </div>
+      <div class="col-xs-4">
+        <select class="form-control">
+          <option value="0">Year</option>
+          <option>1989</option>
+          <option>1990</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="form-group" data-ng-show="!ro.noPanCard" data-ng-init="ro.noPanCard = false;">
+    <div class="row">
+      <div class="col-xs-6">
+        <label>PAN No.{{ro.noPanCard}}</label>
+        <input type="text" class="form-control" placeholder="PAN No." />
+      </div>
+      <div class="col-xs-6 padding top-0x">
+        <label>&nbsp;</label>
+        <a href="javascript:void(0)" data-ng-click="ro.noPanCard = true">I dont't have PAN No.</a>
+      </div>
+    </div>
+  </div>
+  <div class="form-group" data-ng-show="ro.noPanCard">
+    <div class="row">
+      <div class="col-xs-12">
+        <label>Govt ID Type</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6">
+        <select class="form-control">
+          <option value="0">I have...</option>
+          <option>Aadhar Card</option>
+          <option>Driver's License</option>
+          <option>Passport</option>
+          <option>Voter ID</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="form-group padding top-1x">
+    <a type="submit" class="btn btn-primary" href="javascript:void(0)" data-ng-click="ro.userDetailsSection = 'userAddressDetails'">Continue</a>
+  </div>
+</form>

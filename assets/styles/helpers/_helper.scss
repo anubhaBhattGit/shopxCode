@@ -1,0 +1,53 @@
+.well{
+  &.well-ro{
+    margin: 0;
+    background: #F7F6F6;
+    border: 0;
+    box-shadow: none;
+  }
+}
+.v-align{
+  &.middle{
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+  }
+}
+//Table-grid
+.row, .row-fluid{
+	&.table-row{
+		display:table;
+		width:100%;
+		> div[class^="col-"]{
+			display:table-cell;
+			float:none;
+			&.vertical-middle{
+				vertical-align:middle;
+			}
+			&.vertical-top{
+				vertical-align:top;
+			}
+		}
+	}
+}
+.page-wrap {
+  min-height: 100%;
+  margin-bottom: -51px;
+  &:after {
+    content: "";
+    display: block;
+  }
+}
+.site-footer, .page-wrap:after {
+  height: 51px;
+}
+.site-footer{
+  .navbar-default{
+    margin-bottom: 0
+  }
+}
+.hide{
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+}

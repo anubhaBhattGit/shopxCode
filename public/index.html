@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<base href="app/" />
+
+	<title>RO-Form ePayLater</title>
+
+	<!-- Library css -->
+	<link href="/build/app.css" rel="stylesheet">
+
+</head>
+
+<body class="ng-cloak">
+
+	<!-- parent navigation -->
+	<div class="page-wrap">
+		<nav class="navbar" id="main-nav">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 text-center">
+					<a class="" href="javascript:void(0)">
+						<img src="../assets/images/epaylater-logo.png" alt="" style="width:193px;">
+					</a>
+				</div>
+			</div>
+			<div class="row padding top-1x">
+				<div class="col-xs-12 text-center">
+					<h1>RO/Distributor Loan Application Form</h1>
+				</div>
+			</div>
+		</div>
+
+		<div class="container padding top-0x" data-ng-controller="roCntl as ro">
+				<div data-ui-view></div>
+		</div>
+	</div>
+
+  <!-- Full Screen Overlay -->
+  <ro-loader></ro-loader>
+	<footer class="site-footer">
+		<div class="navbar navbar-default">
+	    <div class="container ">
+	      <p class="navbar-text">© 2016 - ePayLater</p>
+	    </div>
+	  </div>
+  </footer>
+
+	<script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyAYnKu58hiJf5N0e2kyXIAka7zQwdilA_0",
+	    authDomain: "ro-epaylater.firebaseapp.com",
+	    databaseURL: "https://ro-epaylater.firebaseio.com",
+	    storageBucket: "",
+	    messagingSenderId: "167032880507"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+
+	<!-- Bootstrap core JavaScript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="/build/lib.min.js"></script>
+	<script src="/build/app.min.js"></script>
+</body>
+</html>

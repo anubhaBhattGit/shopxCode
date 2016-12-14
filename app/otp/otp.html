@@ -1,0 +1,24 @@
+<div class="row table-row">
+  <div class="col-sm-6 col-sm-3 vertical-top col-xs-12">
+    <div class="widget widget-left">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="well well-ro">
+            <form novalidate="true" data-ng-submit="ro.submitOtpForm(otpForm.$valid)" name="otpForm">
+              <div>
+                <span>{{ro.errorMessage}}</span>
+              </div>
+              <div class="form-group">
+                <label>Enter the OTP to verify your phone</label>
+                <input type="text" class="form-control" placeholder="OTP" required data-ng-model="ro.otp"/>
+              </div>
+              <div class="form-group padding top-1x">
+                <button type="submit" class="btn btn-primary">Continue</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

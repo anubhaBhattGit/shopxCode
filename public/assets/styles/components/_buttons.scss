@@ -1,0 +1,20 @@
+
+.btn{
+	font-weight: 600;
+	font-size: 1.1em;
+	min-height: 42px;
+	padding: 9px 20px;
+	&.btn-default{
+		color:#333;
+		background-color:#fff;
+		&:focus, &:active, &:hover{
+			color:#333;
+			background-color:#fff;
+		}
+	}
+	&.btn-primary{
+    border-color: $primary-color;
+    background-color: $primary-color;
+    color: $white;
+	}
+}

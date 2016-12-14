@@ -1,0 +1,29 @@
+/*
+#	Author : Harsh Kumar Lamba
+#	Date : 9th Jan 2015
+*/
+.ro-overlay{
+	position:fixed;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	background: rgba(255,255,255, 0.8);
+	z-index: 99;
+	&.hide{
+		display:none;
+	}
+
+	.ro-overlay-container{
+		position:absolute;
+		width:100%;
+		margin:0;
+		top:45%;
+		transform: translate(0, -55%);
+		text-align:center;
+	}
+	.ro-quotes{
+		font-size:1.5em;
+		margin-bottom:0;
+	}
+}

@@ -1,0 +1,591 @@
+<div class="row table-row">
+  <div class="col-sm-6 vertical-top hidden-xs">
+    <ul class="progressBar" progress-state>
+      <li class="active"><span class="fa fa-check-circle"></span><span>RO / RMU Details</span></li>
+      <li class="bold"><span class="fa fa-check-circle"></span><span>Promoter / Proprietor Information</span></li>
+      <li><span class="fa fa-check-circle"></span><span>Business Details</span></li>
+      <li><span class="fa fa-check-circle"></span><span>Loan section</span></li>
+      <li><span class="fa fa-check-circle"></span><span>Download Forms</span></li>
+      <li><span class="fa fa-check-circle"></span><span>Upload Signed Form</span></li>
+    </ul>
+  </div>
+  <div class="col-sm-6 vertical-top col-xs-12">
+    <div class="widget widget-left">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="well well-ro">
+            <form novalidate="true" data-ng-submit="ro.submitUserBasicDetailsForm(userbasicdetails.$valid)" name="userbasicdetails" data-ng-init="buttonUserBasicDetailsFormClicked = false;">
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <label>Name</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6 col-xs-12">
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="First" name="firstname" required data-ng-model="ro.userBasicDetails.firstname" data-ng-class="{'validation-error': userbasicdetails.firstname.$error.required && (buttonUserBasicDetailsFormClicked || !userbasicdetails.firstname.$pristine)}" data-container="body" data-toggle="popover" data-placement="left" data-content="Please enter first name"/>
+                      <span class="input-group-addon exclamation hidden-xs" data-ng-show="userbasicdetails.firstname.$error.required && (buttonUserBasicDetailsFormClicked || !userbasicdetails.firstname.$pristine)"><i class="fa fa-exclamation-circle" popover-trig></i></span>
+                      <div class="error visible-xs" data-ng-show="userbasicdetails.firstname.$error.required && (buttonUserBasicDetailsFormClicked || !userbasicdetails.firstname.$pristine)">
+                        <span>Please enter first name.</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-xs-12">
+                    <input type="text" class="form-control" placeholder="Middle" name="middle" data-ng-model="ro.userBasicDetails.middle"/>
+                  </div>
+                </div>
+                <div class="row padding top-0x">
+                  <div class="col-sm-6 col-xs-12">
+                    <input type="text" class="form-control" placeholder="Last" name="lastname" data-ng-model="ro.userBasicDetails.last"/>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <label>E-mail Address</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="E-mail Address" data-ng-pattern="ro.emailregex" data-ng-model="ro.userBasicDetails.email" name="email" required data-ng-class="{'validation-error': !userbasicdetails.email.$valid && (buttonUserBasicDetailsFormClicked || !userbasicdetails.email.$pristine)}" data-container="body" data-toggle="popover" data-placement="left" data-content="{{mdnidForm.phoneNumber.$error.required ? 'Please enter email': 'Enter correct email'}}"/>
+                      <span class="input-group-addon exclamation hidden-xs" data-ng-show="!userbasicdetails.email.$valid && (buttonUserBasicDetailsFormClicked || !userbasicdetails.email.$pristine)"><i class="fa fa-exclamation-circle" popover-trig></i></span>
+                      <div class="error visible-xs" data-ng-show="userbasicdetails.email.$error.required && (buttonUserBasicDetailsFormClicked || !userbasicdetails.email.$pristine)">
+                        <span>Please enter email.</span>
+                      </div>
+                      <div class="error visible-xs" data-ng-show="!userbasicdetails.email.$valid && !userbasicdetails.email.$error.required && (buttonUserBasicDetailsFormClicked || !userbasicdetails.email.$pristine)">
+                        <span>Please enter valid email.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm-6 col-xs-12">
+                    <label>Gender</label>
+                    <select class="form-control" name="gender" required data-ng-model="ro.userBasicDetails.gender" data-ng-init="ro.userBasicDetails.gender = '0'" data-ng-class="{'validation-error': ro.userBasicDetails.gender == '0' && buttonUserBasicDetailsFormClicked}" data-container="body" data-toggle="popover" data-placement="left" data-content="Please select gender">
+                      <option value="0">I am ...</option>
+                      <option>Male</option>
+                      <option>Female</option>
+                      <option>Trans</option>
+                      <option>Do not wish to specify</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-1 hidden-xs padding top-2x">
+                    <span class="exclamation error" data-ng-show="ro.userBasicDetails.gender == '0' && buttonUserBasicDetailsFormClicked"><i class="fa fa-exclamation-circle" popover-trig></i></span>
+                  </div>
+                </div>
+                <div class="error visible-xs" data-ng-show="ro.userBasicDetails.gender == '0' && buttonUserBasicDetailsFormClicked">
+                  <span>Please select gender.</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-6">
+                    <label>Education</label>
+                    <select class="form-control" required data-ng-model="ro.userBasicDetails.education" data-ng-init="ro.userBasicDetails.education = '0'" data-ng-class="{'validation-error': ro.userBasicDetails.education == '0' && buttonUserBasicDetailsFormClicked}" data-container="body" data-toggle="popover" data-placement="left" data-content="Please select education">
+                      <option value="0">I am ...</option>
+                      <option>High school pass out</option>
+                      <option>Graduate</option>
+                      <option>Post graduate</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-1 hidden-xs padding top-2x">
+                    <span class="exclamation error" data-ng-show="ro.userBasicDetails.education == '0' && buttonUserBasicDetailsFormClicked"><i class="fa fa-exclamation-circle" popover-trig></i></span>
+                  </div>
+                </div>
+                <div class="error visible-xs" data-ng-show="ro.userBasicDetails.education == '0' && buttonUserBasicDetailsFormClicked">
+                  <span>Please select education.</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <label>Date of Birth</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-4 col-sm-3">
+                    <select class="form-control" data-ng-model="ro.userBasicDetails.dobDay" data-ng-init="ro.userBasicDetails.dobDay = '0'" data-ng-class="{'validation-error': ro.userBasicDetails.dobDay == '0' && buttonUserBasicDetailsFormClicked}" data-container="body" data-toggle="popover" data-placement="left" data-content="Please select date of birth">
+                      <option value="0">Day</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
+                      <option>11</option>
+                      <option>12</option>
+                      <option>13</option>
+                      <option>14</option>
+                      <option>15</option>
+                      <option>16</option>
+                      <option>17</option>
+                      <option>18</option>
+                      <option>19</option>
+                      <option>20</option>
+                      <option>21</option>
+                      <option>22</option>
+                      <option>23</option>
+                      <option>24</option>
+                      <option>25</option>
+                      <option>26</option>
+                      <option>27</option>
+                      <option>28</option>
+                      <option>29</option>
+                      <option>30</option>
+                      <option>31</option>
+                    </select>
+                  </div>
+                  <div class="col-xs-4 col-sm-4">
+                    <select class="form-control" data-ng-model="ro.userBasicDetails.dobMonth" data-ng-init="ro.userBasicDetails.dobMonth = '0'" data-ng-class="{'validation-error': ro.userBasicDetails.dobMonth == '0' && buttonUserBasicDetailsFormClicked}">
+                      <option value="0">Month</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
+                      <option>11</option>
+                      <option>12</option>
+                    </select>
+                  </div>
+                  <div class="col-xs-4 col-sm-4">
+                    <select class="form-control" data-ng-model="ro.userBasicDetails.dobYear" data-ng-init="ro.userBasicDetails.dobYear = '0'" data-ng-class="{'validation-error': ro.userBasicDetails.dobYear == '0' && buttonUserBasicDetailsFormClicked}">
+                      <option value="0">Year</option>
+                        <option>1940</option>
+                        <option>1941</option>
+                        <option>1942</option>
+                        <option>1943</option>
+                        <option>1944</option>
+                        <option>1945</option>
+                        <option>1946</option>
+                        <option>1947</option>
+                        <option>1948</option>
+                        <option>1949</option>
+                        <option>1950</option>
+                        <option>1951</option>
+                        <option>1952</option>
+                        <option>1953</option>
+                        <option>1954</option>
+                        <option>1955</option>
+                        <option>1956</option>
+                        <option>1957</option>
+                        <option>1958</option>
+                        <option>1959</option>
+                        <option>1960</option>
+                        <option>1961</option>
+                        <option>1962</option>
+                        <option>1963</option>
+                        <option>1964</option>
+                        <option>1965</option>
+                        <option>1966</option>
+                        <option>1967</option>
+                        <option>1968</option>
+                        <option>1969</option>
+                        <option>1970</option>
+                        <option>1971</option>
+                        <option>1972</option>
+                        <option>1973</option>
+                        <option>1974</option>
+                        <option>1975</option>
+                        <option>1976</option>
+                        <option>1977</option>
+                        <option>1978</option>
+                        <option>1979</option>
+                        <option>1980</option>
+                        <option>1981</option>
+                        <option>1982</option>
+                        <option>1983</option>
+                        <option>1984</option>
+                        <option>1985</option>
+                        <option>1986</option>
+                        <option>1987</option>
+                        <option>1988</option>
+                        <option>1989</option>
+                      <option>1990</option>
+                      <option>1991</option>
+                      <option>1992</option>
+                      <option>1993</option>
+                      <option>1994</option>
+                      <option>1995</option>
+                      <option>1996</option>
+                      <option>1997</option>
+                      <option>1998</option>
+                      <option>1999</option>
+                      <option>2000</option>
+                      <option>2001</option>
+                      <option>2002</option>
+                      <option>2003</option>
+                      <option>2004</option>
+                      <option>2005</option>
+                      <option>2006</option>
+                      <option>2007</option>
+                      <option>2008</option>
+                      <option>2009</option>
+                      <option>2010</option>
+                      <option>2011</option>
+                      <option>2012</option>
+                      <option>2013</option>
+                      <option>2014</option>
+                      <option>2015</option>
+                      <option>2016</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-1 hidden-xs" style="padding-top:5px;">
+                    <span class="exclamation error" data-ng-show="(ro.userBasicDetails.dobYear == '0' || ro.userBasicDetails.dobMonth == '0' || ro.userBasicDetails.dobDay == '0') && buttonUserBasicDetailsFormClicked"><i class="fa fa-exclamation-circle" popover-trig></i></span>
+                  </div>
+                </div>
+                <div class="error visible-xs" data-ng-show="(ro.userBasicDetails.dobYear == '0' || ro.userBasicDetails.dobMonth == '0' || ro.userBasicDetails.dobDay == '0') && buttonUserBasicDetailsFormClicked">
+                  <span>Please select date of birth.</span>
+                </div>
+              </div>
+              <div class="form-group" data-ng-show="!ro.userBasicDetails.noPanCard" data-ng-init="ro.userBasicDetails.noPanCard = false;">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-6">
+                    <label>PAN No.</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="PAN No." name="panno" data-ng-pattern="ro.panNumberRegex" data-ng-required="!ro.userBasicDetails.noPanCard" data-ng-model="ro.userBasicDetails.panNo" data-ng-class="{'validation-error': !userbasicdetails.panno.$valid && (buttonUserBasicDetailsFormClicked || !userbasicdetails.panno.$pristine)}" data-container="body" data-toggle="popover" data-placement="left" data-content="{{userbasicdetails.panno.$error.required ? 'Please enter PAN No.': 'Enter correct PAN No.'}}"/>
+                      <span class="input-group-addon exclamation hidden-xs" data-ng-show="!userbasicdetails.panno.$valid && (buttonUserBasicDetailsFormClicked || !userbasicdetails.panno.$pristine)"><i class="fa fa-exclamation-circle" popover-trig></i></span>
+                      <div class="error visible-xs" data-ng-show="userbasicdetails.panno.$error.required && (buttonUserBasicDetailsFormClicked || !userbasicdetails.panno.$pristine)">
+                        <span>Please enter PAN No.</span>
+                      </div>
+                      <div class="error visible-xs" data-ng-show="!userbasicdetails.panno.$error.required && !userbasicdetails.panno.$valid && (buttonUserBasicDetailsFormClicked || !userbasicdetails.panno.$pristine)">
+                        <span>Enter correct PAN No.</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-6 padding top-0x">
+                    <label>&nbsp;</label>
+                    <a href="javascript:void(0)" data-ng-click="ro.userBasicDetails.noPanCard = true">I dont't have PAN No.</a>
+                  </div>
+                </div>
+
+              </div>
+              <div class="form-group" data-ng-show="ro.userBasicDetails.noPanCard">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <label>Govt ID Type</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6 col-xs-12">
+                    <select class="form-control" data-ng-model="ro.userBasicDetails.govtID" name="govtID" data-ng-init="ro.userBasicDetails.govtID = '0'" data-ng-class="{'validation-error': ro.userBasicDetails.govtID == '0' && buttonUserBasicDetailsFormClicked}" data-container="body" data-toggle="popover" data-placement="left" data-content="Please select Govt ID type" data-ng-change="ro.userBasicDetails.govtID == 'Pan No' ? ro.userBasicDetails.noPanCard = false : ro.userBasicDetails.noPanCard = true;">
+                      <option value="0">I have ...</option>
+                      <option value="Aadhar Card">Aadhar Card</option>
+                      <option value="Driver License">Driver's License</option>
+                      <option value="Passport">Passport</option>
+                      <option value="Voter ID">Voter ID</option>
+                      <option value="Pan No">Pan No</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-1 hidden-xs" style="padding-top:5px;">
+                    <span class="exclamation error" data-ng-show="ro.userBasicDetails.govtID == '0' && buttonUserBasicDetailsFormClicked"><i class="fa fa-exclamation-circle" popover-trig></i></span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group" data-ng-show="ro.userBasicDetails.govtID == 'Aadhar Card'">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <label>Aadhar Card</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Aadhar Card" name="aadharcard" data-ng-required="ro.userBasicDetails.govtID == 'Aadhar Card'" data-ng-pattern="ro.aadharRegex" data-ng-model="ro.userBasicDetails.aadharCard" data-ng-class="{'validation-error': !userbasicdetails.aadharcard.$valid && (buttonUserBasicDetailsFormClicked || !userbasicdetails.aadharcard.$pristine)}" data-container="body" data-toggle="popover" data-placement="left" data-content="{{userbasicdetails.aadharcard.$error.required ? 'Please enter Aadhar Card': 'Enter correct Aadhar Card'}}"/>
+                      <span class="input-group-addon exclamation hidden-xs" data-ng-show="!userbasicdetails.aadharcard.$valid && (buttonUserBasicDetailsFormClicked || !userbasicdetails.aadharcard.$pristine)"><i class="fa fa-exclamation-circle" popover-trig></i></span>
+                      <div class="error visible-xs" data-ng-show="userbasicdetails.aadharcard.$error.required && (buttonUserBasicDetailsFormClicked || !userbasicdetails.aadharcard.$pristine)">
+                        <span>Please enter Aadhar Card.</span>
+                      </div>
+                      <div class="error visible-xs" data-ng-show="!userbasicdetails.aadharcard.$error.required && !userbasicdetails.aadharcard.$valid && (buttonUserBasicDetailsFormClicked || !userbasicdetails.aadharcard.$pristine)">
+                        <span>Enter correct Aadhar Card.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group" data-ng-show="ro.userBasicDetails.govtID == 'Voter ID'">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <label>Voter ID</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Voter ID" name="voterID" data-ng-required="ro.userBasicDetails.govtID == 'Voter ID'" data-ng-pattern="ro.voterIDRegex" data-ng-model="ro.userBasicDetails.voterId" data-ng-class="{'validation-error': !userbasicdetails.voterID.$valid && (buttonUserBasicDetailsFormClicked || !userbasicdetails.voterID.$pristine)}" data-container="body" data-toggle="popover" data-placement="left" data-content="{{userbasicdetails.voterID.$error.required ? 'Please enter Voter ID': 'Enter correct Voter ID'}}"/>
+                      <span class="input-group-addon exclamation hidden-xs" data-ng-show="!userbasicdetails.voterID.$valid && (buttonUserBasicDetailsFormClicked || !userbasicdetails.voterID.$pristine)"><i class="fa fa-exclamation-circle" popover-trig></i></span>
+                      <div class="error visible-xs" data-ng-show="userbasicdetails.voterID.$error.required && (buttonUserBasicDetailsFormClicked || !userbasicdetails.voterID.$pristine)">
+                        <span>Please enter Voter ID.</span>
+                      </div>
+                      <div class="error visible-xs" data-ng-show="!userbasicdetails.voterID.$error.required && !userbasicdetails.voterID.$valid && (buttonUserBasicDetailsFormClicked || !userbasicdetails.voterID.$pristine)">
+                        <span>Enter correct Voter ID.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group" data-ng-show="ro.userBasicDetails.govtID == 'Driver License'">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <label>Driver License</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Driver License"  data-ng-model="ro.userBasicDetails.driverLicense" name="driverLicense" data-ng-required="ro.userBasicDetails.govtID == 'Driver License'" data-ng-pattern="ro.driverLicenseRegex" data-ng-class="{'validation-error': !userbasicdetails.driverLicense.$valid && (buttonUserBasicDetailsFormClicked || !userbasicdetails.driverLicense.$pristine)}" data-container="body" data-toggle="popover" data-placement="left" data-content="{{userbasicdetails.driverLicense.$error.required ? 'Please enter Driver License': 'Enter correct Driver License'}}"/>
+                      <span class="input-group-addon exclamation hidden-xs" data-ng-show="!userbasicdetails.driverLicense.$valid && (buttonUserBasicDetailsFormClicked || !userbasicdetails.driverLicense.$pristine)"><i class="fa fa-exclamation-circle" popover-trig></i></span>
+                      <div class="error visible-xs" data-ng-show="userbasicdetails.driverLicense.$error.required && (buttonUserBasicDetailsFormClicked || !userbasicdetails.driverLicense.$pristine)">
+                        <span>Please enter Driver License.</span>
+                      </div>
+                      <div class="error visible-xs" data-ng-show="!userbasicdetails.driverLicense.$error.required && !userbasicdetails.driverLicense.$valid && (buttonUserBasicDetailsFormClicked || !userbasicdetails.driverLicense.$pristine)">
+                        <span>Enter correct Driver License.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row padding top-0x">
+                  <div class="col-xs-12">
+                    <label>Expiry Date</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-5">
+                    <select class="form-control" data-ng-model="ro.userBasicDetails.dlMonth" data-ng-init="ro.userBasicDetails.dlMonth = '0'">
+                      <option value="0">Month</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
+                      <option>11</option>
+                      <option>12</option>
+                    </select>
+                  </div>
+                  <div class="col-xs-6">
+                    <select class="form-control" data-ng-model="ro.userBasicDetails.dlYear" data-ng-init="ro.userBasicDetails.dlYear = '0'">
+                      <option value="0">Year</option>
+                        <option>1940</option>
+                        <option>1941</option>
+                        <option>1942</option>
+                        <option>1943</option>
+                        <option>1944</option>
+                        <option>1945</option>
+                        <option>1946</option>
+                        <option>1947</option>
+                        <option>1948</option>
+                        <option>1949</option>
+                        <option>1950</option>
+                        <option>1951</option>
+                        <option>1952</option>
+                        <option>1953</option>
+                        <option>1954</option>
+                        <option>1955</option>
+                        <option>1956</option>
+                        <option>1957</option>
+                        <option>1958</option>
+                        <option>1959</option>
+                        <option>1960</option>
+                        <option>1961</option>
+                        <option>1962</option>
+                        <option>1963</option>
+                        <option>1964</option>
+                        <option>1965</option>
+                        <option>1966</option>
+                        <option>1967</option>
+                        <option>1968</option>
+                        <option>1969</option>
+                        <option>1970</option>
+                        <option>1971</option>
+                        <option>1972</option>
+                        <option>1973</option>
+                        <option>1974</option>
+                        <option>1975</option>
+                        <option>1976</option>
+                        <option>1977</option>
+                        <option>1978</option>
+                        <option>1979</option>
+                        <option>1980</option>
+                        <option>1981</option>
+                        <option>1982</option>
+                        <option>1983</option>
+                        <option>1984</option>
+                        <option>1985</option>
+                        <option>1986</option>
+                        <option>1987</option>
+                        <option>1988</option>
+                        <option>1989</option>
+                      <option>1990</option>
+                      <option>1991</option>
+                      <option>1992</option>
+                      <option>1993</option>
+                      <option>1994</option>
+                      <option>1995</option>
+                      <option>1996</option>
+                      <option>1997</option>
+                      <option>1998</option>
+                      <option>1999</option>
+                      <option>2000</option>
+                      <option>2001</option>
+                      <option>2002</option>
+                      <option>2003</option>
+                      <option>2004</option>
+                      <option>2005</option>
+                      <option>2006</option>
+                      <option>2007</option>
+                      <option>2008</option>
+                      <option>2009</option>
+                      <option>2010</option>
+                      <option>2011</option>
+                      <option>2012</option>
+                      <option>2013</option>
+                      <option>2014</option>
+                      <option>2015</option>
+                      <option>2016</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group" data-ng-show="ro.userBasicDetails.govtID == 'Passport'">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <label>Passport</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Passport" data-ng-model="ro.userBasicDetails.passport" name="passport" data-ng-required="ro.userBasicDetails.govtID == 'Passport'" data-ng-pattern="ro.passportRegex" data-ng-class="{'validation-error': !userbasicdetails.passport.$valid && (buttonUserBasicDetailsFormClicked || !userbasicdetails.passport.$pristine)}" data-container="body" data-toggle="popover" data-placement="left" data-content="{{userbasicdetails.passport.$error.required ? 'Please enter Passport': 'Enter correct Passport'}}"/>
+                      <span class="input-group-addon exclamation hidden-xs" data-ng-show="!userbasicdetails.passport.$valid && (buttonUserBasicDetailsFormClicked || !userbasicdetails.passport.$pristine)"><i class="fa fa-exclamation-circle" popover-trig></i></span>
+                      <div class="error visible-xs" data-ng-show="userbasicdetails.passport.$error.required && (buttonUserBasicDetailsFormClicked || !userbasicdetails.passport.$pristine)">
+                        <span>Please enter Passport.</span>
+                      </div>
+                      <div class="error visible-xs" data-ng-show="!userbasicdetails.passport.$error.required && !userbasicdetails.passport.$valid && (buttonUserBasicDetailsFormClicked || !userbasicdetails.passport.$pristine)">
+                        <span>Enter correct Passport.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row padding top-0x">
+                  <div class="col-xs-12">
+                    <label>Expiry Date</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-6">
+                    <select class="form-control"  data-ng-model="ro.userBasicDetails.passsportMonth" data-ng-init="ro.userBasicDetails.passsportMonth = '0'">
+                      <option value="0">Month</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
+                      <option>11</option>
+                      <option>12</option>
+                    </select>
+                  </div>
+                  <div class="col-xs-6">
+                    <select class="form-control" data-ng-model="ro.userBasicDetails.passsportYear" data-ng-init="ro.userBasicDetails.passsportYear = '0'">
+                      <option value="0">Year</option>
+                        <option>1940</option>
+                        <option>1941</option>
+                        <option>1942</option>
+                        <option>1943</option>
+                        <option>1944</option>
+                        <option>1945</option>
+                        <option>1946</option>
+                        <option>1947</option>
+                        <option>1948</option>
+                        <option>1949</option>
+                        <option>1950</option>
+                        <option>1951</option>
+                        <option>1952</option>
+                        <option>1953</option>
+                        <option>1954</option>
+                        <option>1955</option>
+                        <option>1956</option>
+                        <option>1957</option>
+                        <option>1958</option>
+                        <option>1959</option>
+                        <option>1960</option>
+                        <option>1961</option>
+                        <option>1962</option>
+                        <option>1963</option>
+                        <option>1964</option>
+                        <option>1965</option>
+                        <option>1966</option>
+                        <option>1967</option>
+                        <option>1968</option>
+                        <option>1969</option>
+                        <option>1970</option>
+                        <option>1971</option>
+                        <option>1972</option>
+                        <option>1973</option>
+                        <option>1974</option>
+                        <option>1975</option>
+                        <option>1976</option>
+                        <option>1977</option>
+                        <option>1978</option>
+                        <option>1979</option>
+                        <option>1980</option>
+                        <option>1981</option>
+                        <option>1982</option>
+                        <option>1983</option>
+                        <option>1984</option>
+                        <option>1985</option>
+                        <option>1986</option>
+                        <option>1987</option>
+                        <option>1988</option>
+                        <option>1989</option>
+                      <option>1990</option>
+                      <option>1991</option>
+                      <option>1992</option>
+                      <option>1993</option>
+                      <option>1994</option>
+                      <option>1995</option>
+                      <option>1996</option>
+                      <option>1997</option>
+                      <option>1998</option>
+                      <option>1999</option>
+                      <option>2000</option>
+                      <option>2001</option>
+                      <option>2002</option>
+                      <option>2003</option>
+                      <option>2004</option>
+                      <option>2005</option>
+                      <option>2006</option>
+                      <option>2007</option>
+                      <option>2008</option>
+                      <option>2009</option>
+                      <option>2010</option>
+                      <option>2011</option>
+                      <option>2012</option>
+                      <option>2013</option>
+                      <option>2014</option>
+                      <option>2015</option>
+                      <option>2016</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group padding top-1x">
+                <div class="row table-row">
+                  <div class="col-sm-3 vertical-top">
+                    <button type="submit" class="btn btn-primary" data-ng-click="buttonUserBasicDetailsFormClicked = true">Continue</button>
+                  </div>
+                  <div class="col-sm-9 vertical-middle">
+                    <a href="javascript:void(0)" data-ng-click="ro.logout()">Logout and continue later</a>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
