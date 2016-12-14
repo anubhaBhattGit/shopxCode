@@ -14,26 +14,17 @@
 		vm.logout = logout;
 		vm.gotorormu = gotorormu;
 		vm.loanAmount;
-		vm.tncChecked=false;
-		vm.errorText ="";
 		activate();
 
 		///////////////////////////
         function submitLoanRenewalForm(isValid)
-        {   vm.errorText ="";
-            vm.tncChecked = false;
-            if(isValid && userloandetails.scannedCopy.checked){
+        {
+            if(isValid){
             				loaderService.toggle(true);
-
 				//this API will call when user passed out of form validations
 				//this API function(getAuthenticatedUser) is written inside the services
 				//this will either return success(resolveAuthenticatedUser) or error message(errorAuthenticatedUser)
 				loanrenewalformService.saveRenewalData(vm.userLoanDetails,$state.params.mdnid,$state.params.phone,$state.params.userId).then(resolveAuthenticatedUser, errorAuthenticatedUser);
-			}
-			else if(!userloandetails.scannedCopy.checked)
-			{
-             vm.errorText ="Check the terms and conditions box before proceeding";
-             vm.tncChecked = true;
 			}
         }
         function logout(){

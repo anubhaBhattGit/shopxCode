@@ -43,7 +43,7 @@
 				//mehtod could be get,post, delete and others standard http requet method
 				//params will consist of the list of parameter(comma separated) that need to be passed in API call
                    //  transformRequest: angular.identity
-                    var uploadUrl="http://localhost:9090/epayLaterView/saveFile";
+                    var uploadUrl="https://dev.epaylater.in/epayLaterView/saveFile";
 					 $http.post(uploadUrl, formData, {
                               withCredentials: true,
                              headers: {'Content-Type': undefined },

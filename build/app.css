@@ -6929,15 +6929,7 @@ h1 {
   font-size: 22px;
   padding: 0 5px;
   cursor: pointer; }
-.tnc span
-{
-float:left;
-margin-top:-5px;
-}
-.tnc label
-{
-float:left;
-}
+
 ul.progressBar {
   list-style-type: none; }
   ul.progressBar > li {

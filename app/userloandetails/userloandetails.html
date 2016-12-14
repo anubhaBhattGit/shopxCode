@@ -33,11 +33,9 @@
               <div class="form-group">
                 <div class="row">
                   <div class="col-xs-12 col-sm-6">
-                    <label>Tenor in Days</label>
+                    <label>Number in Days</label>
                     <select class="form-control" data-ng-model="ro.userLoanDetails.tenor" name="tenor" data-ng-init="ro.userLoanDetails.tenor = '0'" data-ng-class="{'validation-error': ro.userLoanDetails.tenor == '0' && buttonUserLoanDetailsFormClicked}" data-container="body" data-toggle="popover" data-placement="left" data-content="Please select tenor">
                       <option value="0">Select days</option>
-                      <option>1</option>
-                      <option>2</option>
                       <option>3</option>
                       <option>4</option>
                       <option>5</option>
@@ -85,9 +83,11 @@
                       <button type="button" class="btn btn-default" data-ng-click="ro.uploadCopy(idProof.id)">Upload ID Proof</button>
                       <span>{{ro.userloandetails.idProofs[$index].fakeValue}}</span>
                     </div>
+                      <!--
                     <div>
                       <a href="javascript:void(0)" data-ng-click="ro.addMoreItems(ro.userloandetails.idProofs, 'idProof')">Add more ID Proof</a>
                     </div>
+                    -->
                   </div>
                 </div>
               </div>
@@ -100,9 +100,11 @@
                       <button type="button" class="btn btn-default" data-ng-click="ro.uploadCopy(idProof.id)">Upload Address Proof</button>
                       <span>{{ro.userloandetails.addressProofs[$index].fakeValue}}</span>
                     </div>
+                    <!--
                     <div>
                       <a href="javascript:void(0)" data-ng-click="ro.addMoreItems(ro.userloandetails.addressProofs, 'addressProof')">Add more Address Proof</a>
                     </div>
+                    -->
                   </div>
                 </div>
               </div>
@@ -132,21 +134,15 @@
                   <ol>
                     <li>If the form is submitted prior to 12 PM the Financial Institution will disburse funds on same day on best effort basis. In case the funds cannot be disbursed on the same day, disbursal will take place by 1 working day after the submission of the Form above.</li>
                     <li>On repayment date if funds are not received by 12 PM, one day's interest would be levied on the outstanding amount</li>
+                    <li>By clicking the submit button below I authorise Arthashastra Fintech Private Limited to conduct credit checks from a Credit Information Company (CIC) on me on behalf of any financial institution</li>
                   </ol>
                 </div>
               </div>
               <div class="row padding top-2x">
                 <div class="col-xs-12">
                   <div class="form-group">
-                    <div class="input-group">
-                      <div class="checkbox tnc">
-                        <label ><input type="checkbox" name="scannedCopy" required data-ng-class="{'validation-error': ro.tncChecked == true}" data-container="body" data-toggle="popover" data-placement="left" data-content="Click terms and conditions to continue"/>  I agree to the above terms and conditions
-                        </label>
-                        <span class="exclamation error" data-ng-show="ro.tncChecked == true">
-                        <i class="fa fa-exclamation-circle" popover-trig></i>
-                      </span>
-                      </div>
-
+                    <div class="checkbox">
+                      <label><input type="checkbox" name="scannedCopy"/>  I agree to the above terms and conditions</label>
                     </div>
                   </div>
                 </div>

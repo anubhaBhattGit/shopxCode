@@ -15,8 +15,6 @@
 		vm.userloandetails.addressProofs = userloandetailsService.addressProofs;
 		vm.uploadCopy = uploadCopy;
 		vm.logout = logout;
-		vm.tncChecked=false;
-        vm.errorText ="";
 		activate();
 
 		///////////////////////////
@@ -30,18 +28,13 @@
 		}
 
 		function submitUserLoanDetailsForm(isValid){
-			if(isValid && userloandetails.scannedCopy.checked){
+			if(isValid){
 				loaderService.toggle(true);
 				//this API will call when user passed out of form validations
 				//this API function(saveUserBasicDetails) is written inside the services
 				//this will either return success(resolveUserDetails) or error message(errorUserDetails)
 				userloandetailsService.saveUserLoanDetails(vm.userLoanDetails, vm.userloandetails,$state.params.userId).then(resolveUserDetails, errorUserDetails);
 			}
-			else if(!userloandetails.scannedCopy.checked)
-            			{
-                         vm.errorText ="Check the terms and conditions box before proceeding";
-                         vm.tncChecked = true;
-            			}
 		}
 		//this is the function called when success is return from api call
 		function resolveUserDetails(data){
