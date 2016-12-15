@@ -34,7 +34,7 @@
 				//mehtod could be get,post, delete and others standard http requet method
 				//params will consist of the list of parameter(comma separated) that need to be passed in API call
          $http({
-                   url : 'http://localhost:9090/epayLaterView/saveShopxUserAddressDetails',
+                   url : 'https://dev.epaylater.in/epayLaterView/saveShopxUserAddressDetails',
                    method: "POST",
                    params: {
        							user: user,
