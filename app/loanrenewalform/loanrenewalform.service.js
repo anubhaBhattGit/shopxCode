@@ -14,18 +14,18 @@
 
     		return service;
 
-    		function saveRenewalData(userLoanDetails,mdnid,phone,id) {
+    		function saveRenewalData(userLoanDetails,customerId,phone,id) {
             var deferred = $q.defer();
 
     				//in url please enter url of the api
     				//mehtod could be get,post, delete and others standard http requet method
     				//params will consist of the list of parameter(comma separated) that need to be passed in API call
             $http({
-                url : 'https://dev.epaylater.in/epayLaterView/updateLoanAmount',
+                url : 'http://localhost:9090/epayLaterView/updateShopxLoanRenewalAmount',
                 method: "POST",
                 params: {
                 userLoanDetails:userLoanDetails,
-                mdnid:mdnid,
+                customerId:customerId,
                 phone:phone,
                 userId:id
     						}

@@ -24,7 +24,7 @@
 				//this API will call when user passed out of form validations
 				//this API function(getAuthenticatedUser) is written inside the services
 				//this will either return success(resolveAuthenticatedUser) or error message(errorAuthenticatedUser)
-				otpService.getAuthenticatedUser(vm.otp,$state.params.phone,$state.params.mdnid).then(resolveAuthenticatedUser, errorAuthenticatedUser);
+				otpService.getAuthenticatedUser(vm.otp,$state.params.phone,$state.params.customerId).then(resolveAuthenticatedUser, errorAuthenticatedUser);
 			}
 		}
 		//this is the function called when success is return from api call
@@ -33,7 +33,7 @@
 			if(data.applicationStatus == "none")
 				$state.go('roorrmu',{userId: $state.params.userId});
 				else if(data.applicationStatus == "applicableForRenewal")
-				$state.go('loanrenewal',{mdnid: $state.params.mdnid , phone: $state.params.phone,userId: $state.params.userId});
+				$state.go('loanrenewal',{customerId: $state.params.customerId , phone: $state.params.phone,userId: $state.params.userId});
 				else
 				$state.go('statusmessage',{statusmessage: data.applicationStatus,userId:$state.params.userId});
 				//workflow on new user or existing user need to be added here

@@ -18,7 +18,7 @@
 				 params: {
                     userId: null,
                     phone : null,
-                    mdnid : null
+                    customerId : null
                              },
 				templateUrl: 'otp/otp.html',
     		controller: 'otpCntl',
@@ -84,7 +84,7 @@
 			state('loanrenewal', {
 				url: '/loanrenewal',
 				params: {
-                         mdnid: null,
+                         customerId: null,
                          phone:null,
                          userId:null
                         },

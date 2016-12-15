@@ -9,17 +9,17 @@
                 <span>{{ro.errorText}}</span>
               </div>
               <div class="form-group"  data-ng-init="buttonMdnidFormClicked = false">
-                <label>MDN ID</label>
+                <label>CUSTOMER ID</label>
                 <div class="row">
                   <div class="col-xs-12">
                     <div class="input-group">
-                      <input type="text" class="form-control" placeholder="MDN ID" data-ng-model="ro.mdnid" data-ng-pattern="ro.mdnidregex" name="mdnid" required data-ng-class="{'validation-error': !mdnidForm.mdnid.$valid && (buttonMdnidFormClicked || !mdnidForm.mdnid.$pristine)}" data-container="body" data-toggle="popover" data-placement="left" data-content="{{mdnidForm.phoneNumber.$error.required ? 'Please enter MDNID': 'Enter correct MDNID'}}" />
-                      <span class="input-group-addon exclamation hidden-xs" data-ng-show="!mdnidForm.mdnid.$valid && (buttonMdnidFormClicked || !mdnidForm.mdnid.$pristine)"><i class="fa fa-exclamation-circle" popover-trig></i></span>
-                      <div class="error visible-xs" data-ng-show="mdnidForm.mdnid.$error.required && (buttonMdnidFormClicked || !mdnidForm.mdnid.$pristine)">
-                        <span>Please enter MDNID.</span>
+                      <input type="text" class="form-control" placeholder="CUSTOMER ID" data-ng-model="ro.customerId" data-ng-pattern="ro.mdnidregex" name="customerId" required data-ng-class="{'validation-error': !mdnidForm.customerId.$valid && (buttonMdnidFormClicked || !mdnidForm.customerId.$pristine)}" data-container="body" data-toggle="popover" data-placement="left" data-content="{{mdnidForm.phoneNumber.$error.required ? 'Please enter CUSTOMERID': 'Enter correct CUSTOMERID'}}" />
+                      <span class="input-group-addon exclamation hidden-xs" data-ng-show="!mdnidForm.customerId.$valid && (buttonMdnidFormClicked || !mdnidForm.customerId.$pristine)"><i class="fa fa-exclamation-circle" popover-trig></i></span>
+                      <div class="error visible-xs" data-ng-show="mdnidForm.customerId.$error.required && (buttonMdnidFormClicked || !mdnidForm.customerId.$pristine)">
+                        <span>Please enter CUSTOMERID.</span>
                       </div>
-                      <div class="error visible-xs" data-ng-show="!mdnidForm.mdnid.$error.required && !mdnidForm.mdnid.$valid && (buttonMdnidFormClicked || !mdnidForm.mdnid.$pristine)">
-                        <span>Enter correct MDNID.</span>
+                      <div class="error visible-xs" data-ng-show="!mdnidForm.customerId.$error.required && !mdnidForm.customerId.$valid && (buttonMdnidFormClicked || !mdnidForm.customerId.$pristine)">
+                        <span>Enter correct CUSTOMERID.</span>
                       </div>
                     </div>
                   </div>

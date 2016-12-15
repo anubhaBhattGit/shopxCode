@@ -24,7 +24,7 @@
 				//this API will call when user passed out of form validations
 				//this API function(getAuthenticatedUser) is written inside the services
 				//this will either return success(resolveAuthenticatedUser) or error message(errorAuthenticatedUser)
-				loanrenewalformService.saveRenewalData(vm.userLoanDetails,$state.params.mdnid,$state.params.phone,$state.params.userId).then(resolveAuthenticatedUser, errorAuthenticatedUser);
+				loanrenewalformService.saveRenewalData(vm.userLoanDetails,$state.params.customerId,$state.params.phone,$state.params.userId).then(resolveAuthenticatedUser, errorAuthenticatedUser);
 			}
         }
         function logout(){

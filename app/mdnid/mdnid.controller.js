@@ -28,14 +28,14 @@
 				//this API will call when user passed out of form validations
 				//this API function(getAuthenticatedUser) is written inside the services
 				//this will either return success(resolveAuthenticatedUser) or error message(errorAuthenticatedUser)
-				mdnidService.getAuthenticatedUser(vm.mdnid, vm.phoneNumber).then(resolveAuthenticatedUser, errorAuthenticatedUser);
+				mdnidService.getAuthenticatedUser(vm.customerId, vm.phoneNumber).then(resolveAuthenticatedUser, errorAuthenticatedUser);
 			}
 		}
 		//this is the function called when success is return from api call
 		function resolveAuthenticatedUser(data){
 			if(data.status == true){
 				roService.login(data.userId);
-				$state.go('otp',{userId : data.userId,requestId : data.requestId,phone : data.phone,mdnid : data.mdnid });
+				$state.go('otp',{userId : data.userId,phone : data.phone,customerId : data.customerId });
 				loaderService.toggle(false);
 			}
 			else if(data.status == false)
